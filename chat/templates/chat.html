@@ -43,6 +43,7 @@ WebSocketを使ったチャットアプリケーション
                 var msg = eval("("+e.data+")");  // var msg = JSON.parse(e.data);
                 messages.append(
                     $("<li>").append(
+                        $("<span>").text("(" + msg.When + ")"),
                         $("<strong>").text(msg.Name + ": "),
                         $("<span>").text(msg.Message)
                     )

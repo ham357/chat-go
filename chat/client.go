@@ -22,7 +22,7 @@ func (c *client) read() {
 	for {
 		var msg *message
 		if err := c.socket.ReadJSON(&msg); err == nil {
-			msg.When = time.Now()
+			msg.When = time.Now().Format("2006/1/2 15:04:05")
 			msg.Name = c.userData["name"].(string)
 			c.room.forward <- msg
 		} else {
