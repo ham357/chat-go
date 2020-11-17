@@ -12,7 +12,7 @@ WebSocketを使ったチャットアプリケーション
 <form id="chatbox">
     {{.UserData.name}}:<br/>
     <textarea></textarea>
-    <input type="submit" value="送信" />
+    <input type="submit" value="送信" /> or <a href="/logout">Sign out</a>
 </form>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js">
@@ -43,7 +43,10 @@ WebSocketを使ったチャットアプリケーション
                 var msg = eval("("+e.data+")");  // var msg = JSON.parse(e.data);
                 messages.append(
                     $("<li>").append(
-                        $("<span>").text("(" + msg.When + ")"),
+                        $("<img>").css({
+                            width: 50,
+                            verticalAlign: "middle"
+                        }).attr("src", msg.AvatarURL),
                         $("<strong>").text(msg.Name + ": "),
                         $("<span>").text(msg.Message)
                     )
